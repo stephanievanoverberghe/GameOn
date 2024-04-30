@@ -1,0 +1,24 @@
+@use 'media-queries' as *;
+
+.container {
+    &__modal {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.modal {
+    color: white;
+    background-color: var(--black);
+    border-radius: 0.8rem;
+    margin: 8rem 0;
+    height: 85rem;
+    width: 53.6rem;
+
+    &__close {
+        font-size: 2rem;
+        display: flex;
+        justify-content: end;
+        padding: 2.5rem;
+    }
+}

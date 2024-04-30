@@ -158,6 +158,26 @@ img {
   }
 }
 
+.container__modal {
+  display: flex;
+  align-items: center;
+}
+
+.modal {
+  color: white;
+  background-color: var(--black);
+  border-radius: 0.8rem;
+  margin: 8rem 0;
+  height: 85rem;
+  width: 53.6rem;
+}
+.modal__close {
+  font-size: 2rem;
+  display: flex;
+  justify-content: end;
+  padding: 2.5rem;
+}
+
 .container {
   min-height: 100vh;
   display: flex;
@@ -178,7 +198,6 @@ img {
     max-width: 1240px;
   }
 }
-
 .main {
   margin-top: 2.8rem;
 }
@@ -309,6 +328,7 @@ img {
 }
 @media only screen and (min-width: 768px) {
   .footer {
+    text-align: start;
     margin-top: 5rem;
     font-size: 1.5rem;
   }
