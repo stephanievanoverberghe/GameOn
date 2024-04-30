@@ -1,0 +1,66 @@
+@use 'media-queries' as *;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include lg {
+        margin-top: 5.3rem;
+        margin-bottom: 8.4rem;
+    }
+
+    &__img--size {
+        width: 10.3rem;
+
+        @include md {
+            width: 15rem;
+        }
+
+        @include lg {
+            width: 27.7rem;
+        }
+    }
+
+    &__nav {
+        font-size: 1.8rem;
+        line-height: 2.344rem;
+        display: none;
+
+        @include lg {
+            display: flex;
+            gap: 2.5rem;
+        }
+    }
+
+    &__menu {
+        font-size: 1.9rem;
+        color: var(--primary);
+
+        @include md {
+            font-size: 3rem
+        }
+
+        @include lg {
+            display: none;
+        }
+    }
+}
+
+.nav {
+
+    &__item {
+        background: transparent;
+        padding: 1rem;
+
+        @include lg {
+            &:hover {
+                background: var(--primary);
+                color: white;
+                padding: 1rem;
+                border-radius: 0.8rem;
+                text-decoration: underline;
+            }
+        }
+    }
+}
