@@ -13,7 +13,7 @@
     <div class="container container__content">
         <header class="header">
             <div class="header__img">
-                <img src="./src/assets/img/logo.png" alt="Logo de GameOn" class="header__img--size">
+                <img src="src/assets/img/logo-gameon.png" alt="Logo de GameOn" class="header__img--size">
             </div>
             <ul class="header__nav" id="menu">
                 <li><a href="#" class="nav__item active">Détails de l'évènement</a></li>
@@ -52,76 +52,93 @@
                 <i class="fa-solid fa-xmark"></i>
             </div>
             <div class="modal__body">
-                <form action="index.html" name="reserve" method="get" onsubmit="return validate();">
-                    <div class="form__data">
+                <form action="index.html" name="reserve" method="get" onsubmit="return validate();" class="form">
+                    <div class="form__data form__input">
                         <label for="firstname">Prénom</label>
                         <input type="text" class="text__control" id="firstname" name="firstname" minlength="2">
                     </div>
-                    <div class="form__data">
+                    <div class="form__data form__input">
                         <label for="lastname">Nom</label>
                         <input type="text" class="text__control" id="lastname" name="lastname">
                     </div>
-                    <div class="form__data">
+                    <div class="form__data form__input">
                         <label for="email">Email</label>
                         <input type="email" class="text__control" id="email" name="email">
                     </div>
-                    <div class="form__data">
+                    <div class="form__data form__input">
                         <label for="birthday">Date de naissance</label>
                         <input type="date" class="text__control" id="birthday" name="birthday">
                     </div>
-                    <div class="form__data">
+                    <div class="form__data form__input">
                         <label for="numberParticipation">À combien de tournois GameOn avez-vous déjà participé ?</label>
                         <input type="number" class="text__control" id="numberParticipation" name="numberParticipation"
                             min="0" max="99">
                     </div>
-                    <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-                    <div class="form__data">
-                        <input type="radio" class="checkbox__input" id="location1" name="location" value="New York">
-                        <label class="checkbox-label" for="location1">
-                            <span class="checkbox-icon"></span>
-                            New York
-                        </label>
-                        <input type="radio" class="checkbox__input" id="location2" name="location"
-                            value="San Francisco">
-                        <label class="checkbox-label" for="location2">
-                            <span class="checkbox-icon"></span>
-                            San Francisco
-                        </label>
-                        <input type="radio" class="checkbox__input" id="location3" name="location" value="Seattle">
-                        <label class="checkbox-label" for="location3">
-                            <span class="checkbox-icon"></span>
-                            Seattle
-                        </label>
-                        <input type="radio" class="checkbox__input" id="location4" name="location" value="Chicago">
-                        <label class="checkbox-label" for="location4">
-                            <span class="checkbox-icon"></span>
-                            Chicago
-                        </label>
-                        <input type="radio" class="checkbox__input" id="location5" name="location" value="Boston">
-                        <label class="checkbox-label" for="location5">
-                            <span class="checkbox-icon"></span>
-                            Boston
-                        </label>
-                        <input type="radio" class="checkbox__input" id="location6" name="location" value="Portland">
-                        <label class="checkbox-label" for="location6">
-                            <span class="checkbox-icon"></span>
-                            Portland
-                        </label>
+                    <p class="text__label">A quel tournoi souhaitez-vous participer cette année ?</p>
+                    <div class="form__data form__radio">
+                        <div class="check__item">
+                            <input type="radio" class="check__input" id="location1" name="location" value="New York"
+                                checked>
+                            <label class="check__label" for="location1">
+                                <span class="check__icon"></span>
+                                New York
+                            </label>
+                        </div>
+                        <div class="check__item">
+                            <input type="radio" class="check__input" id="location2" name="location"
+                                value="San Francisco">
+                            <label class="check__label" for="location2">
+                                <span class="check__icon"></span>
+                                San Francisco
+                            </label>
+                        </div>
+                        <div class="check__item">
+                            <input type="radio" class="check__input" id="location3" name="location" value="Seattle">
+                            <label class="check__label" for="location3">
+                                <span class="check__icon"></span>
+                                Seattle
+                            </label>
+                        </div>
+                        <div class="check__item">
+                            <input type="radio" class="check__input" id="location4" name="location" value="Chicago">
+                            <label class="check__label" for="location4">
+                                <span class="check__icon"></span>
+                                Chicago
+                            </label>
+                        </div>
+                        <div class="check__item">
+                            <input type="radio" class="check__input" id="location5" name="location" value="Boston">
+                            <label class="check__label" for="location5">
+                                <span class="check__icon"></span>
+                                Boston
+                            </label>
+                        </div>
+                        <div class="check__item">
+                            <input type="radio" class="check__input" id="location6" name="location" value="Portland">
+                            <label class="check__label" for="location6">
+                                <span class="check__icon"></span>
+                                Portland
+                            </label>
+                        </div>
                     </div>
-                    <div class="form__data">
-                        <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
-                        <label class="checkbox2-label" for="checkbox1" required>
-                            <span class="checkbox-icon"></span>
-                            J'ai lu et accepté les conditions d'utilisation.
-                        </label>
-                        <input class="checkbox-input" type="checkbox" id="checkbox2" />
-                        <label class="checkbox2-label" for="checkbox2">
-                            <span class="checkbox-icon"></span>
-                            Je souhaite être prévenu des prochains évènements.
-                        </label>
+                    <div class="form__data form__check">
+                        <div class="check__item">
+                            <input class="check__input" type="checkbox" id="checkbox1" checked />
+                            <label class="check__label" for="checkbox1" required>
+                                <span class="check__icon"></span>
+                                J'ai lu et accepté les conditions d'utilisation.
+                            </label>
+                        </div>
+                        <div class="check__item">
+                            <input class="check__input" type="checkbox" id="checkbox2" />
+                            <label class="check__label" for="checkbox2">
+                                <span class="check__icon"></span>
+                                Je souhaite être prévenu des prochains évènements.
+                            </label>
+                        </div>
                     </div>
-                    <div>
-                        <button class="btn" type="submit">C'est parti</button>
+                    <div class="form__button">
+                        <button class="btn form__button--custom" type="submit">C'est parti</button>
                     </div>
                 </form>
             </div>
