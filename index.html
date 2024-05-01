@@ -11,7 +11,7 @@
 
 <body>
     <div class="container container__content">
-        <header class="header">
+        <header class="header" id="headerNav">
             <div class="header__img">
                 <img src="src/assets/img/logo-gameon.png" alt="Logo de GameOn" class="header__img--size">
             </div>
@@ -35,7 +35,7 @@
                     <img src="src/assets/img/bg-img.jpg" alt="Image d'un player" class="main__img--size">
                 </div>
                 <div class="content__button">
-                    <button class="btn">Je m'inscris</button>
+                    <button class="btn" id="openModal">Je m'inscris</button>
                 </div>
             </div>
             <div class="main__img img__desktop">
@@ -46,10 +46,10 @@
             <p>Copyright 2014 - 2022, GameOn Inc.</p>
         </footer>
     </div>
-    <div class="container container__modal">
-        <div class="modal">
-            <div class="modal__close">
-                <i class="fa-solid fa-xmark"></i>
+    <div class="modal" id="modalRegister">
+        <div class="modal__dialog">
+            <div class="modal__close" id="modalClose">
+                <i class="fa-solid fa-xmark close__icon"></i>
             </div>
             <div class="modal__body">
                 <form action="index.html" name="reserve" method="get" onsubmit="return validate();" class="form">
@@ -145,6 +145,8 @@
         </div>
     </div>
 
+    <script src="src/assets/js/headerNav.js"></script>
+    <script src="src/assets/js/openModal.js"></script>
 </body>
 
 </html>

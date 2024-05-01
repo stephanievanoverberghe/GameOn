@@ -18,6 +18,7 @@ a {
   --green: #279e7a;
   --error: #ff4e60;
   --shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.25);
+  --modal-duration: 0.8s;
   --dmsans: "DMSans",
   sans-serif;
 }
@@ -71,6 +72,10 @@ a {
 
 img {
   max-width: 100%;
+}
+
+.hidden {
+  display: none;
 }
 
 .header {
@@ -158,28 +163,46 @@ img {
   }
 }
 
-.container__modal {
-  display: flex;
-  align-items: center;
-}
-
 .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 3rem;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 39, 156, 0.4);
+  padding: 3rem 0.5rem;
+}
+.modal__dialog {
   color: white;
-  background-color: var(--black);
   border-radius: 0.8rem;
-  margin: 8rem 0;
   height: 85rem;
-  width: 53.6rem;
+  max-width: 53.6rem;
+  background-color: var(--black);
+  margin: auto;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
 }
 .modal__close {
   font-size: 2rem;
   display: flex;
   justify-content: end;
   padding: 2.5rem;
+  cursor: pointer;
+}
+.modal__close:hover {
+  color: var(--primary);
 }
 
 .form {
-  margin: 0 3.9rem;
+  margin: 0 2rem;
+}
+@media only screen and (min-width: 768px) {
+  .form {
+    margin: 0 3.9rem;
+  }
 }
 .form__input {
   display: flex;
@@ -232,11 +255,25 @@ label,
 }
 
 .text__control {
-  height: 6.5rem;
+  height: 4rem;
   border-radius: 0.8rem;
   margin-top: 1.7rem;
 }
+@media only screen and (min-width: 768px) {
+  .text__control {
+    height: 6.5rem;
+  }
+}
 
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
 .container {
   min-height: 100vh;
   display: flex;
@@ -257,6 +294,7 @@ label,
     max-width: 1240px;
   }
 }
+
 .main {
   margin-top: 2.8rem;
 }
@@ -271,6 +309,7 @@ label,
   }
 }
 .main__content {
+  display: none;
   border-radius: 0;
   display: flex;
   flex-direction: column;
@@ -390,12 +429,6 @@ label,
     text-align: start;
     margin-top: 5rem;
     font-size: 1.5rem;
-  }
-}
-@media only screen and (min-width: 1050px) {
-  .footer {
-    margin-top: 9.9rem;
-    margin-bottom: 6.3rem;
   }
 }
 
