@@ -107,6 +107,10 @@ label,
         height: 4rem;
         border-radius: 0.8rem;
         margin-top: 1.7rem;
+        outline: none;
+        padding: 0 1rem;
+        font-size: 2rem;
+        border: none;
 
         @include md {
             height: 6.5rem;

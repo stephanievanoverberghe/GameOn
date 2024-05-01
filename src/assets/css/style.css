@@ -258,6 +258,10 @@ label,
   height: 4rem;
   border-radius: 0.8rem;
   margin-top: 1.7rem;
+  outline: none;
+  padding: 0 1rem;
+  font-size: 2rem;
+  border: none;
 }
 @media only screen and (min-width: 768px) {
   .text__control {
