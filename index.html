@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/assets/css/style.css">
+    <link rel="icon" href="src/assets/img/favicon.png" />
     <script src="https://kit.fontawesome.com/33a775bcdb.js" crossorigin="anonymous"></script>
     <title>Reservation</title>
 </head>
@@ -15,15 +16,22 @@
             <div class="header__img">
                 <img src="src/assets/img/logo-gameon.png" alt="Logo de GameOn" class="header__img--size">
             </div>
-            <ul class="header__nav" id="menu">
+            <ul class="header__nav">
                 <li><a href="#" class="nav__item active">Détails de l'évènement</a></li>
                 <li><a href="#" class="nav__item">À propos</a></li>
                 <li><a href="#" class="nav__item">Contact</a></li>
                 <li><a href="#" class="nav__item">Évènements passés</a></li>
             </ul>
             <div class="header__menu" id="menuTrigger">
-                <i class="fa fa-bars"></i>
+                <i class="fa fa-bars menu__icon"></i>
+                <i class="fa-solid fa-xmark menu__icon icon__hidden"></i>
             </div>
+            <ul class="header__mobile" id="menu">
+                <li class="mobile__item"><a href="#" class="nav__item active">Détails de l'évènement</a></li>
+                <li class="mobile__item"><a href="#" class="nav__item">À propos</a></li>
+                <li class="mobile__item"><a href="#" class="nav__item">Contact</a></li>
+                <li class="mobile__item"><a href="#" class="nav__item">Évènements passés</a></li>
+            </ul>
         </header>
         <main class="main">
             <div class="main__content">
