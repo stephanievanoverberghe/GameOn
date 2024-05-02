@@ -83,6 +83,7 @@
     &__item {
         background: transparent;
         color: white;
+        padding: 1rem;
 
         @include lg {
             color: var(--black);
@@ -90,7 +91,6 @@
             &:hover {
                 background: var(--primary);
                 color: white;
-                padding: 1rem;
                 border-radius: 0.8rem;
                 text-decoration: underline;
             }

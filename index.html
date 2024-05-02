@@ -60,29 +60,39 @@
                 <i class="fa-solid fa-xmark close__icon"></i>
             </div>
             <div class="modal__body">
-                <form action="index.html" name="reserve" method="get" onsubmit="return validate();" class="form">
+                <form action="index.html" name="reserve" method="get" onsubmit="return validate();" class="form"
+                    id="form">
                     <div class="form__data form__input">
-                        <label for="firstname">Prénom</label>
-                        <input type="text" class="text__control" id="firstname" name="firstname" minlength="2">
+                        <label for="firstname">Prénom <span class="form__required">*</span></label>
+                        <input type="text" class="text__control" id="firstname" name="firstname" minlength="2" required
+                            pattern="[A-Za-z-éèêëàâäôöûüç' ]+$">
+                        <span class="form__error">Ce champ est obligatoire.</span>
                     </div>
                     <div class="form__data form__input">
-                        <label for="lastname">Nom</label>
-                        <input type="text" class="text__control" id="lastname" name="lastname">
+                        <label for="lastname">Nom <span class="form__required">*</span></label>
+                        <input type="text" class="text__control" id="lastname" name="lastname" required
+                            pattern="[A-Za-z-éèêëàâäôöûüç' ]+$">
+                        <span class="form__error">Ce champ est obligatoire.</span>
                     </div>
                     <div class="form__data form__input">
-                        <label for="email">Email</label>
+                        <label for="email">Email <span class="form__required">*</span></label>
                         <input type="email" class="text__control" id="email" name="email">
+                        <span class="form__error">Veuillez entrer une adresse mail valide.</span>
                     </div>
                     <div class="form__data form__input">
-                        <label for="birthday">Date de naissance</label>
+                        <label for="birthday">Date de naissance <span class="form__required">*</span></label>
                         <input type="date" class="text__control" id="birthday" name="birthday">
+                        <span class="form__error">Vous devez avoir plus de 18 ans pour vous inscrire.</span>
                     </div>
                     <div class="form__data form__input">
-                        <label for="numberParticipation">À combien de tournois GameOn avez-vous déjà participé ?</label>
+                        <label for="numberParticipation">À combien de tournois GameOn avez-vous déjà participé ? <span
+                                class="form__required">*</span></label>
                         <input type="number" class="text__control" id="numberParticipation" name="numberParticipation"
                             min="0" max="99">
+                        <span class="form__error">Ce champ est obligatoire.</span>
                     </div>
                     <p class="text__label">A quel tournoi souhaitez-vous participer cette année ?</p>
+                    <span class="form__error">Veuillez sélectionner un tournoi.</span>
                     <div class="form__data form__radio">
                         <div class="check__item">
                             <input type="radio" class="check__input" id="location1" name="location" value="New York"
@@ -134,7 +144,7 @@
                             <input class="check__input" type="checkbox" id="checkbox1" checked />
                             <label class="check__label" for="checkbox1" required>
                                 <span class="check__icon"></span>
-                                J'ai lu et accepté les conditions d'utilisation.
+                                J'ai lu et accepté les conditions d'utilisation. <span class="form__required">*</span>
                             </label>
                         </div>
                         <div class="check__item">
@@ -144,6 +154,7 @@
                                 Je souhaite être prévenu des prochains évènements.
                             </label>
                         </div>
+                        <span class="form__error">Veuillez cocher les conditions d'utilisation.</span>
                     </div>
                     <div class="form__button">
                         <button class="btn form__button--custom" type="submit">C'est parti</button>
@@ -155,6 +166,7 @@
 
     <script src="src/assets/js/headerNav.js"></script>
     <script src="src/assets/js/openModal.js"></script>
+    <script src="src/assets/js/formModal.js"></script>
 </body>
 
 </html>

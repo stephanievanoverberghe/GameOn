@@ -156,6 +156,7 @@ img {
 .nav__item {
   background: transparent;
   color: white;
+  padding: 1rem;
 }
 @media only screen and (min-width: 1050px) {
   .nav__item {
@@ -164,7 +165,6 @@ img {
   .nav__item:hover {
     background: var(--primary);
     color: white;
-    padding: 1rem;
     border-radius: 0.8rem;
     text-decoration: underline;
   }
@@ -194,19 +194,19 @@ img {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
-  padding: 3rem 0.5rem;
+  padding: 1.5rem;
 }
 .modal__dialog {
   color: white;
   border-radius: 0.8rem;
-  height: 85rem;
+  height: 87rem;
   max-width: 53.6rem;
   background-color: var(--black);
   margin: auto;
@@ -217,7 +217,7 @@ img {
   font-size: 2rem;
   display: flex;
   justify-content: end;
-  padding: 2.5rem;
+  padding: 2rem;
   cursor: pointer;
 }
 .modal__close:hover {
@@ -235,10 +235,10 @@ img {
 .form__input {
   display: flex;
   flex-direction: column;
-  padding: 0 0 1.3rem 0;
+  padding: 0 0 2rem 0;
 }
 .form__radio {
-  margin: 1.3rem 0 1.9rem 0;
+  margin: 1.3rem 0 3rem 0;
   display: flex;
   flex-flow: row wrap;
   gap: 1.5rem;
@@ -255,6 +255,13 @@ img {
 }
 .form__button--custom {
   font-size: 1.4rem;
+}
+.form__required {
+  color: var(--error);
+}
+.form__error {
+  color: var(--error);
+  padding-top: 0.2rem;
 }
 
 .check__item {
@@ -285,16 +292,11 @@ label,
 .text__control {
   height: 4rem;
   border-radius: 0.8rem;
-  margin-top: 1.7rem;
+  margin-top: 0.5rem;
   outline: none;
   padding: 0 1rem;
   font-size: 2rem;
   border: none;
-}
-@media only screen and (min-width: 768px) {
-  .text__control {
-    height: 6.5rem;
-  }
 }
 
 @keyframes modalopen {
