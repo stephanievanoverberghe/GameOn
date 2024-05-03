@@ -1,3 +1,7 @@
+/**
+ * Script dedicated to opening and closing the modal
+ */
+
 const btnModal = document.querySelector('#openModal');
 const modalClose = document.querySelector('#modalClose');
 const modal = document.querySelector('#modalRegister');

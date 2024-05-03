@@ -1,3 +1,7 @@
+/**
+ * Script dedicated to opening and closing the tablet and mobile version menu
+ */
+
 const menu = document.querySelector('#menu');
 const menuTrigger = document.querySelector('#menuTrigger');
 const menuTriggerIcons = menuTrigger.querySelectorAll('.menu__icon');
