@@ -82,9 +82,9 @@
                         <span class="form__error">* Vous devez avoir plus de 18 ans pour vous inscrire.</span>
                     </div>
                     <div class="form__data form__input">
-                        <label for="numberParticipation">À combien de tournois GameOn avez-vous déjà participé ? <span
+                        <label for="numberParticipate">À combien de tournois GameOn avez-vous déjà participé ? <span
                                 class="form__required">*</span></label>
-                        <input type="number" class="text__control" id="numberParticipation" name="numberParticipation"
+                        <input type="number" class="text__control" id="numberParticipate" name="numberParticipate"
                             min="0" max="99">
                         <span class="form__error">* Ce champ est obligatoire.</span>
                     </div>
@@ -93,8 +93,7 @@
                     <span class="form__error">* Veuillez sélectionner un tournoi.</span>
                     <div class="form__data form__radio">
                         <div class="check__item">
-                            <input type="radio" class="check__input" id="location1" name="location" value="New York"
-                                checked>
+                            <input type="radio" class="check__input" id="location1" name="location" value="New York">
                             <label class="check__label" for="location1">
                                 <span class="check__icon"></span>
                                 New York
@@ -139,7 +138,7 @@
                     </div>
                     <div class="form__data form__check">
                         <div class="check__item">
-                            <input class="check__input" type="checkbox" id="checkbox1" checked />
+                            <input class="check__input" type="checkbox" id="checkbox1" />
                             <label class="check__label" for="checkbox1" required>
                                 <span class="check__icon"></span>
                                 J'ai lu et accepté les conditions d'utilisation. <span class="form__required">*</span>
@@ -158,6 +157,10 @@
                         <button class="btn form__button--custom" type="submit">C'est parti</button>
                     </div>
                 </form>
+            </div>
+            <div class="modal__succes">
+                <p class="succes__content">Merci pour votre inscription</p>
+                <button id="succes-btn" class="btn succes__submit">Fermer</button>
             </div>
         </div>
     </div>

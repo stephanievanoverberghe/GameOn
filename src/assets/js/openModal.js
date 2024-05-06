@@ -5,6 +5,8 @@
 const btnModal = document.querySelector('#openModal');
 const modalClose = document.querySelector('#modalClose');
 const modal = document.querySelector('#modalRegister');
+const modalSucces = document.querySelector('.modal__succes');
+
 
 /**
  * Opening the modal
@@ -21,6 +23,7 @@ const closeModal = () => {
     modal.style.display = "none";
 };
 modalClose.addEventListener('click', closeModal);
+modalSucces.addEventListener('click', closeModal)
 
 /**
  * Clicking outside the modal, close it 
