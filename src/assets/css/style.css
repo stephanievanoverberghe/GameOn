@@ -275,7 +275,8 @@ img {
 .form__required {
   color: var(--error);
 }
-.form__error {
+
+.data__error {
   color: var(--error);
   padding-top: 0.2rem;
   display: none;
@@ -306,7 +307,7 @@ label,
   font-weight: 400;
 }
 
-.text__control {
+.data__control {
   height: 4rem;
   border-radius: 0.8rem;
   margin-top: 0.5rem;

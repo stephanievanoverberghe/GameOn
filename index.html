@@ -60,37 +60,61 @@
                 <i class="fa-solid fa-xmark close__icon"></i>
             </div>
             <div class="modal__body">
-                <form action="index.html" name="reserve" method="GET" class="form">
+                <form class="form" novalidate>
+                    <!-- FIRSTNAME -->
                     <div class="form__data form__input">
-                        <label for="firstname">Prénom <span class="form__required">*</span></label>
-                        <input type="text" class="text__control" id="firstname" name="firstname" minlength="2" required>
-                        <span class="form__error">* Ce champ est obligatoire.</span>
+                        <label for="firstname">
+                            Prénom
+                            <span class="form__required">*</span>
+                        </label>
+                        <input type="text" class="data__control" id="firstname" name="firstname">
+                        <span class="data__error"></span>
                     </div>
+
+                    <!-- LASTNAME -->
                     <div class="form__data form__input">
-                        <label for="lastname">Nom <span class="form__required">*</span></label>
-                        <input type="text" class="text__control" id="lastname" name="lastname" minlength="2" required>
-                        <span class="form__error">* Ce champ est obligatoire.</span>
+                        <label for="lastname">
+                            Nom
+                            <span class="form__required">*</span>
+                        </label>
+                        <input type="text" class="data__control" id="lastname" name="lastname">
+                        <span class="data__error"></span>
                     </div>
+
+                    <!-- EMAIL -->
                     <div class="form__data form__input">
-                        <label for="email">Email <span class="form__required">*</span></label>
-                        <input type="email" class="text__control" id="email" name="email">
-                        <span class="form__error">* Veuillez entrer une adresse mail valide.</span>
+                        <label for="email">Email
+                            <span class="form__required">*</span>
+                        </label>
+                        <input type="email" class="data__control" id="email" name="email">
+                        <span class="data__error"></span>
                     </div>
+
+                    <!-- BIRTHDAY -->
                     <div class="form__data form__input">
-                        <label for="birthday">Date de naissance <span class="form__required">*</span></label>
-                        <input type="date" class="text__control" id="birthday" name="birthday">
-                        <span class="form__error">* Vous devez avoir plus de 18 ans pour vous inscrire.</span>
+                        <label for="birthday">
+                            Date de naissance
+                            <span class="form__required">*</span>
+                        </label>
+                        <input type="date" class="data__control" id="birthday" name="birthday">
+                        <span class="data__error"></span>
                     </div>
+
+                    <!-- NUMBER PARTICIPATIONS -->
                     <div class="form__data form__input">
-                        <label for="numberParticipate">À combien de tournois GameOn avez-vous déjà participé ? <span
-                                class="form__required">*</span></label>
-                        <input type="number" class="text__control" id="numberParticipate" name="numberParticipate"
-                            min="0" max="99">
-                        <span class="form__error">* Ce champ est obligatoire.</span>
+                        <label for="participation">
+                            À combien de tournois GameOn avez-vous déjà participé ?
+                            <span class="form__required">*</span>
+                        </label>
+                        <input type="number" class="data__control" id="participation" name="participation">
+                        <span class="data__error"></span>
                     </div>
-                    <p class="text__label">A quel tournoi souhaitez-vous participer cette année ? <span
-                            class="form__required">*</span></p>
-                    <span class="form__error">* Veuillez sélectionner un tournoi.</span>
+
+                    <!-- LOCATION TOURNOI -->
+                    <p class="text__label">
+                        A quel tournoi souhaitez-vous participer cette année ?
+                        <span class="form__required">*</span>
+                    </p>
                     <div class="form__data form__radio">
                         <div class="check__item">
                             <input type="radio" class="check__input" id="location1" name="location" value="New York">
@@ -135,24 +159,30 @@
                                 Portland
                             </label>
                         </div>
+                        <span class="data__error"></span>
                     </div>
+
+                    <!-- CONDITIONS -->
                     <div class="form__data form__check">
                         <div class="check__item">
-                            <input class="check__input" type="checkbox" id="checkbox1" />
-                            <label class="check__label" for="checkbox1" required>
+                            <input class="check__input" type="checkbox" id="checkbox1" name="conditions">
+                            <label class="check__label" for="checkbox1">
                                 <span class="check__icon"></span>
-                                J'ai lu et accepté les conditions d'utilisation. <span class="form__required">*</span>
+                                J'ai lu et accepté les conditions d'utilisation.
+                                <span class="form__required">*</span>
                             </label>
                         </div>
                         <div class="check__item">
-                            <input class="check__input" type="checkbox" id="checkbox2" />
-                            <label class="check__label" for="checkbox2">
+                            <input class="check__input" type="checkbox" id="checkbox2" name="events">
+                            <label class=" check__label" for="checkbox2">
                                 <span class="check__icon"></span>
                                 Je souhaite être prévenu des prochains évènements.
                             </label>
                         </div>
-                        <span class="form__error">* Veuillez cocher les conditions d'utilisation.</span>
+                        <span class="data__error">* Veuillez cocher les conditions d'utilisation.</span>
                     </div>
+
+                    <!-- BUTTON SUBMIT -->
                     <div class="form__button">
                         <button class="btn form__button--custom" type="submit">C'est parti</button>
                     </div>
