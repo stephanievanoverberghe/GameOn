@@ -34,6 +34,14 @@
             color: var(--primary);
         }
     }
+
+    &__succes {
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .form {
@@ -140,5 +148,6 @@ label,
     &__content {
         font-size: 3.6rem;
         font-weight: 400;
+        margin-bottom: 3rem;
     }
 }
