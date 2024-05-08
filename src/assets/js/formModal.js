@@ -66,14 +66,10 @@ const validateForm = (formData, config) => {
         const value = inputElement.type === 'checkbox' ? inputElement.checked : formData.get(fieldName);
         const errorElement = inputElement.closest('.form__data').querySelector('.data__error');
 
-        console.log(`Validating ${fieldName}:`, value);
-
         // Teste si la valeur du champ respecte la règle de validation.
         if (!rule(value)) {
             errorElement.textContent = errorMessage;
             isValid = false;
-
-            console.log(`${fieldName} error: ${errorMessage}`);
 
         } else {
             errorElement.textContent = '';
