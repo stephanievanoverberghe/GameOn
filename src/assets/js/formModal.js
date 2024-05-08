@@ -33,7 +33,7 @@ const validationConfig = {
         errorMessage: 'Le nombre de participations n\'est pas valide.'
     },
     location: {
-        rule: value => value !== '',
+        rule: value => value && value.trim() !== '',
         errorMessage: 'Veuillez sélectionner un tournoi.'
     },
     conditions: {
@@ -45,8 +45,8 @@ const validationConfig = {
 /**
  * Sert à vérifier si les données saisies dans le formulaire respectent les règles spécifiées pour chaque champ.
  * 
- * @param {object} formData // Contient toutes les données saisies dans le formulaire
- * @param {object} config // Contient la configuration de validation pour chaque champ du formulaire : rules et errorMessage
+ * @param {object} formData Contient toutes les données saisies dans le formulaire
+ * @param {object} config Contient la configuration de validation pour chaque champ du formulaire : rules et errorMessage
  * @returns 
  */
 const validateForm = (formData, config) => {
