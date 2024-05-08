@@ -34,19 +34,6 @@
             color: var(--primary);
         }
     }
-
-    &__succes {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        border-radius: 0.8rem;
-        height: 87rem;
-        max-width: 53.6rem;
-        background-color: var(--black);
-        margin: auto;
-    }
 }
 
 .form {

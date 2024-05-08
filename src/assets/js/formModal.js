@@ -86,6 +86,9 @@ const handleSubmit = e => {
 
     if (isValid) {
         console.log('Toutes les données sont valides !');
+        document.querySelector('.modal__body').classList.add('hidden');
+        document.querySelector('.modal__succes').classList.remove('hidden');
+
     } else {
         console.log('Validation échouée, le formulaire n\'est pas envoyé !');
     }
