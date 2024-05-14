@@ -18,8 +18,15 @@ img {
 
 .hidden {
     display: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
 }
 
 .visible {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+    opacity: 1;
 }

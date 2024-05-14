@@ -1,97 +1,110 @@
+/**
+ * @fileOverview 
+ * Script principal pour la gestion des formulaires de réservation avec validation dynamique et manipulation de modales.
+ * Il inclut l'importation des configurations de validation, l'affichage et le masquage des éléments de l'interface utilisateur en réponse à la validation.
+ */
+
+import { validationConfig } from './validationConfig.js';
+
+/**
+ * Sélectionne les éléments du DOM nécessaires à la manipulation des modales.
+ */
 const form = document.querySelector('.form');
+const modalBody = document.querySelector('.modal__body');
+const modalSuccess = document.querySelector('.modal__success');
 
-const getDate18YearsAgo = () => {
-    const today = new Date();
-    today.setFullYear(today.getFullYear() - 18);
-    return today;
-};
-
-const validationConfig = {
-    firstname: {
-        rule: value => /^[A-Za-zÀ-ÖØ-öø-ÿ]{2,}$/.test(value),
-        errorMessage: 'Le prénom doit contenir au moins 2 caractères.'
-    },
-    lastname: {
-        rule: value => /^[A-Za-zÀ-ÖØ-öø-ÿ]{2,}$/.test(value),
-        errorMessage: 'Le nom doit contenir au moins 2 caractères.'
-    },
-    email: {
-        rule: value => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value),
-        errorMessage: 'Email non valide.'
-    },
-    birthday: {
-        rule: value => {
-            const regexDate = /^(19|20)\d\d-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
-            const userBirthday = new Date(value);
-            const minAgeDate = getDate18YearsAgo();
-            return regexDate.test(value) && userBirthday <= minAgeDate;
-        },
-        errorMessage: 'Vous devez être âgé de plus de 18 ans.'
-    },
-    participation: {
-        rule: value => parseInt(value, 10) >= 0,
-        errorMessage: 'Le nombre de participations n\'est pas valide.'
-    },
-    location: {
-        rule: value => value && value.trim() !== '',
-        errorMessage: 'Veuillez sélectionner un tournoi.'
-    },
-    conditions: {
-        rule: value => value === true,
-        errorMessage: 'Vous devez accepter les conditions d’utilisation.'
-    }
+/**
+ * Définit ou efface les messages d'erreur sur les champs du formulaire en fonction de leur validité.
+ * @param {HTMLElement} inputElement - L'élément input du formulaire concerné.
+ * @param {boolean} isValid - Indique si le champ est valide.
+ * @param {string} errorMessage - Le message d'erreur à afficher si le champ n'est pas valide.
+ */
+const setFieldError = (inputElement, isValid, errorMessage) => {
+    const errorElement = inputElement.closest('.form__data').querySelector('.data__error');
+    errorElement.textContent = isValid ? '' : errorMessage;
 };
 
 /**
- * Sert à vérifier si les données saisies dans le formulaire respectent les règles spécifiées pour chaque champ.
- * 
- * @param {object} formData Contient toutes les données saisies dans le formulaire
- * @param {object} config Contient la configuration de validation pour chaque champ du formulaire : rules et errorMessage
- * @returns 
+ * Valide les données du formulaire en utilisant la configuration de validation spécifiée.
+ * @param {FormData} formData - Les données extraites du formulaire.
+ * @param {Object} config - Les règles de validation pour chaque champ du formulaire.
+ * @returns {boolean} Retourne true si tous les champs sont valides, sinon false.
  */
 const validateForm = (formData, config) => {
-    // Permet de voir si toutes les données sont valides
-    let isValid = true;
-    /**
-     * Object.entries() créer un tableau des entrée de l'objet config où chaque entrée est un tableau [clé, valeur].
-     * fieldname représente la clé, le nom du champ
-     * {rule, errorMessage} déstructure l'objet de configuration pour ce champ.
-     */
-    Object.entries(config).forEach(([fieldName, { rule, errorMessage }]) => {
-        // Sélectionne l'élément du formulaire basé sur son attribut "name" qui correspond au "fieldname"
-        const inputElement = form.querySelector(`[name="${fieldName}"]`);
-        // Récupère la valeur du champ. 
-        // Si le type de l'élément est une case à cocher, il récupère la propriété "checked"
-        // Sinon il récupère la valeur du champ à partir de l'objet "formData"
-        const value = inputElement.type === 'checkbox' ? inputElement.checked : formData.get(fieldName);
-        const errorElement = inputElement.closest('.form__data').querySelector('.data__error');
+    return Object.entries(config)
+        .reduce((isValid, [fieldName, { rule, errorMessage }]) => {
+            const inputElement = form.querySelector(`[name="${fieldName}"]`);
+            const value = inputElement.type === 'checkbox' ? inputElement.checked : formData.get(fieldName);
+            const isFieldValid = rule(value);
+            setFieldError(inputElement, isFieldValid, errorMessage);
+            return isValid && isFieldValid;
+        }, true);
+}
 
-        // Teste si la valeur du champ respecte la règle de validation.
-        if (!rule(value)) {
-            errorElement.textContent = errorMessage;
-            isValid = false;
+/**
+ * Affiche un élément DOM.
+ * @param {HTMLElement} element - L'élément à rendre visible.
+ */
+const showElement = element => {
+    element.classList.remove('hidden');
+    element.classList.add('visible');
+}
 
-        } else {
-            errorElement.textContent = '';
-        }
-    });
-    return isValid;
-};
+/**
+ * Cache un élément DOM.
+ * @param {HTMLElement} element - L'élément à cacher.
+ */
+const hideElement = element => {
+    element.classList.add('hidden');
+    element.classList.remove('visible');
+}
 
-const handleSubmit = e => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const isValid = validateForm(formData, validationConfig);
-
-    if (isValid) {
-        console.log('Toutes les données sont valides !');
-        document.querySelector('.modal__body').classList.add('hidden');
-        document.querySelector('.modal__succes').classList.remove('hidden');
-
+/**
+ * Bascule la visibilité des modales en fonction de la validité du formulaire.
+ * @param {boolean} showSuccess - Détermine quelle modale montrer basée sur si le formulaire est validé ou non.
+ */
+const toggleModalVisibility = showSuccess => {
+    if (showSuccess) {
+        hideElement(modalBody);
+        showElement(modalSuccess);
     } else {
-        console.log('Validation échouée, le formulaire n\'est pas envoyé !');
+        showElement(modalBody);
+        hideElement(modalSuccess);
     }
 }
 
+/**
+ * Réinitialise le formulaire et les modales après une soumission réussie.
+ * Cette fonction est appelée après un délai pour permettre à l'utilisateur de lire le message de succès.
+ */
+const resetFormAndModal = () => {
+    form.reset(); // Réinitialise les champs du formulaire
+    Array.from(form.elements).forEach(element => {
+        if (element.type !== 'submit') {
+            setFieldError(element, true, ''); // Efface les messages d'erreur
+        }
+    });
+    hideElement(modalSuccess);
+    showElement(modalBody);
+}
+
+/**
+ * Gère la soumission du formulaire. Empêche le rechargement de la page, valide les entrées,
+ * et bascule la visibilité des modales selon le résultat.
+ * @param {Event} e - L'événement de soumission du formulaire.
+ */
+const handleSubmit = e => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const isValid = validateForm(formData, validationConfig);
+
+    toggleModalVisibility(isValid);
+
+    console.log(isValid ? 'Toutes les données sont valides !' : 'Validation échouée, le formulaire n\'est pas envoyé !');
+    if (isValid) {
+        setTimeout(resetFormAndModal, 5000);
+    }
+}
+
+// Ajoute l'écouteur d'événements pour gérer la soumission du formulaire.
 form.addEventListener('submit', handleSubmit);

@@ -76,10 +76,17 @@ img {
 
 .hidden {
   display: none;
+  transition: opacity 0.5s ease;
+  opacity: 0;
 }
 
 .visible {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+  opacity: 1;
 }
 
 .header {
@@ -231,12 +238,8 @@ img {
 .modal__close:hover {
   color: var(--primary);
 }
-.modal__succes {
+.modal__success {
   height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .form {
@@ -323,7 +326,7 @@ label,
   border: none;
 }
 
-.succes__content {
+.success__content {
   font-size: 3.6rem;
   font-weight: 400;
   margin-bottom: 3rem;
