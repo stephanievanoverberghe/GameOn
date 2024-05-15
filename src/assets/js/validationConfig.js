@@ -1,6 +1,14 @@
 /**
- * @fileOverview 
+ * @file
  * Contient la configuration de validation pour les champs de formulaire, utilisée dans l'application.
+ * 
+ * Ce fichier inclut des règles de validation pour chaque champ de formulaire et les messages d'erreur associés.
+ * Il fournit également une fonction utilitaire pour calculer la date correspondant à un âge minimum de 18 ans.
+ * 
+ * @version 1.0.0
+ * @module validationConfig
+ * 
+ * @author Stéphanie Vanoverberghe
  */
 
 /**
@@ -14,7 +22,34 @@ const getDate18YearsAgo = () => {
 };
 
 /**
- * Configuration de validation pour différents champs de formulaire. Chaque champ a une règle et un message d'erreur associés.
+ * Configuration de validation pour différents champs de formulaire.
+ * Chaque champ a une règle de validation et un message d'erreur associés.
+ * @typedef {Object} ValidationConfig
+ * @property {Object} firstname - Validation du prénom.
+ * @property {function(string): boolean} firstname.rule - Règle de validation pour le prénom.
+ * @property {string} firstname.errorMessage - Message d'erreur pour le prénom.
+ * @property {Object} lastname - Validation du nom de famille.
+ * @property {function(string): boolean} lastname.rule - Règle de validation pour le nom de famille.
+ * @property {string} lastname.errorMessage - Message d'erreur pour le nom de famille.
+ * @property {Object} email - Validation de l'adresse email.
+ * @property {function(string): boolean} email.rule - Règle de validation pour l'adresse email.
+ * @property {string} email.errorMessage - Message d'erreur pour l'adresse email.
+ * @property {Object} birthday - Validation de la date de naissance.
+ * @property {function(string): boolean} birthday.rule - Règle de validation pour la date de naissance.
+ * @property {string} birthday.errorMessage - Message d'erreur pour la date de naissance.
+ * @property {Object} participation - Validation du nombre de participations.
+ * @property {function(string): boolean} participation.rule - Règle de validation pour le nombre de participations.
+ * @property {string} participation.errorMessage - Message d'erreur pour le nombre de participations.
+ * @property {Object} location - Validation de la localisation du tournoi.
+ * @property {function(string): boolean} location.rule - Règle de validation pour la localisation du tournoi.
+ * @property {string} location.errorMessage - Message d'erreur pour la localisation du tournoi.
+ * @property {Object} conditions - Validation des conditions d'utilisation.
+ * @property {function(boolean): boolean} conditions.rule - Règle de validation pour les conditions d'utilisation.
+ * @property {string} conditions.errorMessage - Message d'erreur pour les conditions d'utilisation.
+ */
+
+/**
+ * @type {ValidationConfig}
  */
 export const validationConfig = {
     firstname: {
@@ -31,10 +66,9 @@ export const validationConfig = {
     },
     birthday: {
         rule: value => {
-            const regexDate = /^(19|20)\d\d-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
             const userBirthday = new Date(value);
             const minAgeDate = getDate18YearsAgo();
-            return regexDate.test(value) && userBirthday <= minAgeDate;
+            return userBirthday <= minAgeDate;
         },
         errorMessage: 'Vous devez être âgé de plus de 18 ans.'
     },
