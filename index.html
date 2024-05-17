@@ -12,16 +12,19 @@
 
 <body>
     <div class="container container__content">
+        <!-- En-tête du site -->
         <header class="header" id="headerNav">
             <div class="header__img">
                 <img src="src/assets/img/logo-gameon.png" alt="Logo de GameOn" class="header__img--size">
             </div>
+            <!-- Navigation principale -->
             <ul class="header__nav">
                 <li><a href="#" class="nav__item active">Détails de l'évènement</a></li>
                 <li><a href="#" class="nav__item">À propos</a></li>
                 <li><a href="#" class="nav__item">Contact</a></li>
                 <li><a href="#" class="nav__item">Évènements passés</a></li>
             </ul>
+            <!-- Menu de navigation mobile -->
             <div class="header__menu" id="menuTrigger">
                 <i class="fa fa-bars menu__icon"></i>
                 <i class="fa-solid fa-xmark menu__icon icon__hidden"></i>
@@ -33,6 +36,8 @@
                 <li class="mobile__item"><a href="#" class="nav__item">Évènements passés</a></li>
             </ul>
         </header>
+
+        <!-- Contenu principal de la page -->
         <main class="main">
             <div class="main__content">
                 <h1 class="content__title">Marathon national de jeux vidéos</h1>
@@ -42,6 +47,7 @@
                 <div class="main__img img__mobile">
                     <img src="src/assets/img/bg-img.jpg" alt="Image d'un player" class="main__img--size">
                 </div>
+                <!-- Bouton pour ouvrir la modale d'inscription -->
                 <div class="content__button">
                     <button class="btn" id="openModal">Je m'inscris</button>
                 </div>
@@ -50,18 +56,24 @@
                 <img src="src/assets/img/bg-img.jpg" alt="Image d'un player" class="main__img--size">
             </div>
         </main>
+
+        <!-- Pied de page -->
         <footer class="footer">
             <p>Copyright 2014 - 2022, GameOn Inc.</p>
         </footer>
     </div>
+
+    <!-- Modale d'inscription -->
     <div class="modal" id="modalRegister">
         <div class="modal__dialog">
+            <!-- Bouton pour fermer la modale -->
             <div class="modal__close" id="modalClose">
                 <i class="fa-solid fa-xmark close__icon"></i>
             </div>
             <div class="modal__body">
+                <!-- Formulaire d'inscription -->
                 <form class="form" novalidate>
-                    <!-- FIRSTNAME -->
+                    <!-- Champ pour le prénom -->
                     <div class="form__data form__input">
                         <label for="firstname">
                             Prénom
@@ -71,7 +83,7 @@
                         <span class="data__error"></span>
                     </div>
 
-                    <!-- LASTNAME -->
+                    <!-- Champ pour le nom -->
                     <div class="form__data form__input">
                         <label for="lastname">
                             Nom
@@ -81,7 +93,7 @@
                         <span class="data__error"></span>
                     </div>
 
-                    <!-- EMAIL -->
+                    <!-- Champ pour l'email -->
                     <div class="form__data form__input">
                         <label for="email">Email
                             <span class="form__required">*</span>
@@ -90,7 +102,7 @@
                         <span class="data__error"></span>
                     </div>
 
-                    <!-- BIRTHDAY -->
+                    <!-- Champ pour la date de naissance -->
                     <div class="form__data form__input">
                         <label for="birthday">
                             Date de naissance
@@ -100,7 +112,7 @@
                         <span class="data__error"></span>
                     </div>
 
-                    <!-- NUMBER PARTICIPATIONS -->
+                    <!-- Champ pour le nombre de participations -->
                     <div class="form__data form__input">
                         <label for="participation">
                             À combien de tournois GameOn avez-vous déjà participé ?
@@ -110,7 +122,7 @@
                         <span class="data__error"></span>
                     </div>
 
-                    <!-- LOCATION TOURNOI -->
+                    <!-- Champ pour la localisation du tournoi -->
                     <p class="text__label">
                         A quel tournoi souhaitez-vous participer cette année ?
                         <span class="form__required">*</span>
@@ -166,7 +178,7 @@
                         <span class="data__error"></span>
                     </div>
 
-                    <!-- CONDITIONS -->
+                    <!-- Champ pour les conditions d'utilisation -->
                     <div class="form__data form__check">
                         <div class="check__item">
                             <input class="check__input" type="checkbox" id="checkbox1" name="conditions">
@@ -186,12 +198,13 @@
                         <span class="data__error">* Veuillez cocher les conditions d'utilisation.</span>
                     </div>
 
-                    <!-- BUTTON SUBMIT -->
+                    <!-- Bouton de soumission du formulaire -->
                     <div class="form__button">
                         <button class="btn form__button--custom" type="submit">C'est parti</button>
                     </div>
                 </form>
             </div>
+            <!-- Message de succès affiché après soumission du formulaire -->
             <div class="modal__success hidden">
                 <p class="success__content">Merci pour votre inscription</p>
                 <button id="success-btn" class="btn success__submit">Fermer</button>

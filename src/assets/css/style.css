@@ -225,8 +225,7 @@ img {
   max-width: 53.6rem;
   background-color: var(--black);
   margin: auto;
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration);
+  animation-duration: 0.5s;
 }
 .modal__close {
   font-size: 2rem;
@@ -240,6 +239,10 @@ img {
 }
 .modal__success {
   height: 80%;
+}
+
+.modal.is-visible {
+  display: block;
 }
 
 .form {
@@ -327,6 +330,7 @@ label,
 }
 
 .success__content {
+  text-align: center;
   font-size: 3.6rem;
   font-weight: 400;
   margin-bottom: 3rem;
@@ -341,6 +345,34 @@ label,
     opacity: 1;
   }
 }
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+
+.fadeOutUp {
+  animation-name: fadeOutUp;
+}
+
 .container {
   min-height: 100vh;
   display: flex;

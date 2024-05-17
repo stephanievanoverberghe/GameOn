@@ -19,8 +19,7 @@
         max-width: 53.6rem;
         background-color: var(--black);
         margin: auto;
-        animation-name: modalopen;
-        animation-duration: var(--modal-duration);
+        animation-duration: 0.5s;
     }
 
     &__close {
@@ -38,6 +37,10 @@
     &__success {
         height: 80%;
     }
+}
+
+.modal.is-visible {
+    display: block;
 }
 
 .form {
@@ -142,6 +145,7 @@ label,
 
 .success {
     &__content {
+        text-align: center;
         font-size: 3.6rem;
         font-weight: 400;
         margin-bottom: 3rem;

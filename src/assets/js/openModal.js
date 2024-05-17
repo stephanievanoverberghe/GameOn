@@ -4,43 +4,39 @@
  * Ce script inclut des fonctions pour afficher et masquer les modales en réponse aux actions de l'utilisateur,
  * ainsi que pour gérer les clics en dehors des modales pour les fermer.
  * 
- * @version 1.0.0
- * @see validationConfig.js
+ * @version 1.0.2
  * 
  * @autor Stéphanie Vanoverberghe
  */
 
-const btnModal = document.querySelector('#openModal');
-const modalClose = document.querySelector('#modalClose');
 const modal = document.querySelector('#modalRegister');
-const successModal = document.querySelector('#success-btn');
+const modalDialog = document.querySelector('.modal__dialog');
 
 /**
- * Ouvre la modale d'inscription en modifiant son style d'affichage.
+ * Gère l'ouverture et la fermeture de la modale avec animation.
+ * @param {boolean} isOpen - Indique si la modale doit être ouverte ou fermée.
  * @returns {void}
  */
-const openModal = () => {
-    modal.style.display = "block";
+const toggleModal = (isOpen) => {
+    if (isOpen) {
+        modal.style.display = 'block';
+        modalDialog.classList.remove('fadeOutUp');
+        modalDialog.classList.add('fadeInDown');
+    } else {
+        modalDialog.classList.remove('fadeInDown');
+        modalDialog.classList.add('fadeOutUp');
+        modalDialog.addEventListener('animationend', () => {
+            modal.style.display = 'none';
+        }, { once: true });
+    }
 };
-btnModal.addEventListener('click', openModal);
 
-/**
- * Ferme la modale d'inscription en modifiant son style d'affichage.
- * @returns {void}
- */
-const closeModal = () => {
-    modal.style.display = "none";
-};
-modalClose.addEventListener('click', closeModal);
-successModal.addEventListener('click', closeModal);
+document.querySelector('#openModal').addEventListener('click', () => toggleModal(true));
+document.querySelector('#modalClose').addEventListener('click', () => toggleModal(false));
+document.querySelector('#success-btn').addEventListener('click', () => toggleModal(false));
 
-/**
- * Ferme la modale si un clic est détecté en dehors de celle-ci.
- * @param {Event} event - L'événement de clic survenant sur la fenêtre.
- * @returns {void}
- */
 window.addEventListener('click', event => {
-    if (event.target == modal) {
-        closeModal();
-    };
+    if (event.target === modal) {
+        toggleModal(false);
+    }
 });
