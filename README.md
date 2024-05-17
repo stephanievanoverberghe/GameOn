@@ -110,10 +110,7 @@ GameOn/
 │           ├── _reset.scss
 │           ├── _variables.scss
 │           └── style.scss
-├── .gitignore
 ├── index.html
-├── package-lock.json
-├── package.json
 └── README.md
 ```
 
