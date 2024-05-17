@@ -79,8 +79,6 @@ npm start
 npm run sass
 ```
 
-4. Ouvrez le fichier `index.html` dans votre navigateur pour voir le site.
-
 ## Utilisation
 
 > 1. Cliquez sur le bouton "Je m'inscris" pour ouvrir la modale d'inscription.
