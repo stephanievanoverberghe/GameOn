@@ -48,7 +48,6 @@ Suivez ces étapes pour installer et configurer le projet localement :
 
 ```sh
 git clone https://github.com/StephanieVanoverberghe/GameOn.git
-cd GameOn
 ```
 
 2. Installer les dépendances
