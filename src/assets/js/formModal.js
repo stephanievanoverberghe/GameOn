@@ -53,7 +53,7 @@ const validationConfig = {
  * @param {HTMLElement} element - L'élément à modifier.
  * @param {boolean} show - Si vrai, montre l'élément; sinon, le cache.
  */
-const toggleVisibility = (element, show) => {
+export const toggleVisibility = (element, show) => {
     element.classList.toggle('hidden', !show);
     element.classList.toggle('visible', show);
 };
@@ -61,15 +61,15 @@ const toggleVisibility = (element, show) => {
 /**
  * Réinitialise le formulaire et les modales après une soumission réussie.
  */
-const resetFormAndModal = () => {
+export const resetFormAndModal = () => {
     form.reset();
     Array.from(form.elements).forEach(element => {
         if (element.type !== 'submit') {
             setFieldError(element, true, '');
         }
     });
-    toggleVisibility(modalSuccess, false);
-    toggleVisibility(modalBody, true);
+    toggleVisibility(modalSuccess, true);
+    toggleVisibility(modalBody, false);
 }
 
 /**
@@ -85,6 +85,10 @@ const handleSubmit = e => {
     toggleVisibility(modalSuccess, isValid);
 
     console.log(isValid ? 'Toutes les données sont valides !' : 'Validation échouée, le formulaire n\'est pas envoyé !');
+
+    if (isValid) {
+        resetFormAndModal();
+    }
 }
 
 form.addEventListener('submit', handleSubmit);
