@@ -128,11 +128,16 @@ img {
   position: absolute;
   z-index: 1;
   top: 8rem;
-  right: 0rem;
+  right: 0;
   left: 0;
   background-color: var(--primary);
   padding: 2rem 5rem;
-  display: none;
+  opacity: 0;
+  /* Start hidden */
+  transform: translateY(-10px);
+  /* Start slightly above */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  /* Smooth transition */
 }
 @media only screen and (min-width: 768px) {
   .header__mobile {
@@ -153,6 +158,11 @@ img {
 .header__menu {
   font-size: 1.9rem;
   color: var(--primary);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
   .header__menu {
@@ -164,8 +174,18 @@ img {
     display: none;
   }
 }
+.header .menu__icon {
+  font-size: 2rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
 .header .icon__hidden {
-  display: none;
+  position: absolute;
+  opacity: 0;
+  transform: rotate(90deg);
+}
+.header .icon__visible {
+  opacity: 1;
+  transform: rotate(0deg);
 }
 
 .nav__item {
@@ -183,6 +203,11 @@ img {
     border-radius: 0.8rem;
     text-decoration: underline;
   }
+}
+
+.menu__visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .btn {

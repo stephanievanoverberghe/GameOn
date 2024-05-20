@@ -11,14 +11,14 @@ const menuTriggerIcons = menuTrigger.querySelectorAll('.menu__icon');
  * Bascule entre l'ouverture et la fermeture du menu.
  */
 const toggleMenu = () => {
-    menu.style.display === 'block' ? closeMenu() : openMenu();
+    menu.classList.contains('menu__visible') ? closeMenu() : openMenu();
 };
 
 /**
  * Ouvre le menu.
  */
 const openMenu = () => {
-    menu.style.display = 'block';
+    menu.classList.add('menu__visible');
     toggleMenuIcons(true);
 };
 
@@ -26,7 +26,7 @@ const openMenu = () => {
  * Ferme le menu.
  */
 const closeMenu = () => {
-    menu.style.display = 'none';
+    menu.classList.remove('menu__visible');
     toggleMenuIcons(false);
 };
 
