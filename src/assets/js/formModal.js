@@ -21,7 +21,7 @@ const validationConfig = {
         errorMessage: 'Le nom doit contenir au moins 2 caractères.'
     },
     email: {
-        rule: value => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value),
+        rule: value => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/.test(value),
         errorMessage: 'Email non valide.'
     },
     birthday: {
