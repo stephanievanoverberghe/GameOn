@@ -1,6 +1,6 @@
 /**
  * @file
- * Gestion du formulaire ok
+ * Gestion du formulaire
  */
 
 import { validateForm, setFieldError, getDate18YearsAgo, form } from './validationConfig.js';
