@@ -122,5 +122,5 @@ GameOn/
 
 ## Liens
 
--   Code du site : [GitHub](https://github.com/stephanievanoverberghe/GameOn)
--   Site en direct : [GitHub Pages](https://stephanievanoverberghe.github.io/GameOn/)
+-   Code du site : [GitHub](https://github.com/stephanievanoverberghe/ocr-p4-gameon)
+-   Site en direct : [GitHub Pages](https://stephanievanoverberghe.github.io/ocr-p4-gameon/)
